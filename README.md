@@ -31,7 +31,7 @@ Sistema de gestión académica simple desarrollado con Laravel, enfocado en el s
 *   **Frontend:** Blade (plantillas de Laravel), HTML, CSS, JavaScript.
     *   Bootstrap (para el diseño general y dashboards).
     *   Tailwind CSS (utilizado en la vista de toma de asistencia).
-*   **Base de Datos:** (Especifica tu base de datos, ej: MySQL, PostgreSQL, SQLite)
+*   **Base de Datos:** Mysql
 *   **Otros:** Composer (gestor de dependencias PHP), NPM (gestor de paquetes Node.js, si se usa para assets).
 
 ## Prerrequisitos
