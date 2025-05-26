@@ -46,7 +46,7 @@ Sistema de gestión académica simple desarrollado con Laravel, enfocado en el s
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone https://tu-repositorio-url/gestion-academia.git
+    git clone https://github.com/Kevinmadrid12/desafio3DSS.git
     cd gestion-academia
     ```
 
@@ -58,7 +58,7 @@ Sistema de gestión académica simple desarrollado con Laravel, enfocado en el s
 3.  **Instalar dependencias de Node.js (si aplica):**
     ```bash
     npm install
-    npm run dev # o build, según tu configuración de assets
+    npm run dev 
     ```
 
 4.  **Configurar el archivo de entorno:**
