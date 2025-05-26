@@ -1,66 +1,127 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Gestión de Academia
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema de gestión académica simple desarrollado con Laravel, enfocado en el seguimiento de estudiantes, tutores, grupos, asistencia y aspectos disciplinarios/académicos.
 
-## About Laravel
+## Características Principales
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+*   **Autenticación y Roles:** Sistema de inicio de sesión con roles diferenciados (Administrador, Tutor, Estudiante).
+*   **Dashboard de Administrador:**
+    *   Estadísticas generales (total de estudiantes, tutores, grupos).
+    *   Porcentaje de asistencia mensual.
+    *   Listado de grupos con mayor ausentismo.
+    *   Gestión completa de Grupos (CRUD): creación, asignación de tutores y estudiantes.
+    *   Generación de reportes de estudiantes en PDF por trimestre.
+    *   Listado de Estudiantes y Tutores.
+    *   Exportación de datos del dashboard a PDF.
+*   **Dashboard de Tutor:**
+    *   Estadísticas personalizadas (estudiantes a cargo, grupos asignados, porcentaje de asistencia de sus grupos).
+    *   Listado de grupos asignados con detalle de estudiantes.
+    *   **Toma de Asistencia:** Funcionalidad para pasar lista los **sábados de 8:00 AM a 11:00 AM**.
+    *   **Asignación de Aspectos:** Durante la toma de asistencia, el tutor puede asignar aspectos positivos y a mejorar a los estudiantes.
+*   **Perfil de Estudiante:**
+    *   Visualización de información personal.
+    *   Historial de asistencia.
+    *   Aspectos asignados.
+    *   Indicador de "semáforo" de disciplina/rendimiento basado en asistencias y aspectos.
+*   **Perfil de Usuario:** Los usuarios pueden ver y editar su información básica de perfil (nombre, email, contraseña).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologías Utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+*   **Backend:** PHP, Laravel Framework
+*   **Frontend:** Blade (plantillas de Laravel), HTML, CSS, JavaScript.
+    *   Bootstrap (para el diseño general y dashboards).
+    *   Tailwind CSS (utilizado en la vista de toma de asistencia).
+*   **Base de Datos:** (Especifica tu base de datos, ej: MySQL, PostgreSQL, SQLite)
+*   **Otros:** Composer (gestor de dependencias PHP), NPM (gestor de paquetes Node.js, si se usa para assets).
 
-## Learning Laravel
+## Prerrequisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+*   PHP >= 8.1 (o la versión especificada en tu `composer.json`)
+*   Composer
+*   Node.js y NPM (si estás compilando assets con Laravel Mix/Vite)
+*   Servidor web (Nginx, Apache)
+*   Base de datos compatible con Laravel (ej. MySQL, PostgreSQL)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Instalación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone https://tu-repositorio-url/gestion-academia.git
+    cd gestion-academia
+    ```
 
-## Laravel Sponsors
+2.  **Instalar dependencias de PHP:**
+    ```bash
+    composer install
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3.  **Instalar dependencias de Node.js (si aplica):**
+    ```bash
+    npm install
+    npm run dev # o build, según tu configuración de assets
+    ```
 
-### Premium Partners
+4.  **Configurar el archivo de entorno:**
+    *   Copia `.env.example` a `.env`:
+        ```bash
+        cp .env.example .env
+        ```
+    *   Edita el archivo `.env` y configura los detalles de tu base de datos (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`, etc.) y otras configuraciones necesarias (como `APP_URL`).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+5.  **Generar la clave de la aplicación:**
+    ```bash
+    php artisan key:generate
+    ```
 
-## Contributing
+6.  **Ejecutar las migraciones de la base de datos:**
+    ```bash
+    php artisan migrate
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7.  **Poblar la base de datos con datos de prueba (Seeders):**
+    ```bash
+    php artisan db:seed
+    ```
+    Esto creará usuarios de ejemplo (ver más abajo) y otros datos necesarios para el funcionamiento inicial.
 
-## Code of Conduct
+8.  **Configurar el enlace simbólico para el almacenamiento (si usas `storage/app/public`):**
+    ```bash
+    php artisan storage:link
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Uso
 
-## Security Vulnerabilities
+1.  **Iniciar el servidor de desarrollo de Laravel:**
+    ```bash
+    php artisan serve
+    ```
+    La aplicación estará disponible por defecto en `http://127.0.0.1:8000`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2.  **Credenciales de Acceso (creadas por los Seeders):**
+    *   **Administrador:**
+        *   Email: `admin@academia.edu`
+        *   Contraseña: `Admin123!`
+    *   **Tutor de Ejemplo:**
+        *   Email: `tutor.ejemplo@academia.edu`
+        *   Contraseña: `tutorejemplo123`
+    *   **Estudiante de Ejemplo:**
+        *   Email: `estudiante.ejemplo@academia.edu`
+        *   Contraseña: `estudianteejemplo123`
 
-## License
+## Funcionalidades Clave y Notas
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+*   **Toma de Asistencia Restringida:** Los tutores solo pueden acceder a la funcionalidad de toma de asistencia los días sábado entre las 8:00 AM y las 11:00 AM. Fuera de este horario, el acceso estará bloqueado.
+*   **Middleware de Roles:** Se utilizan middlewares (`can:admin`, `can:tutor`) para proteger las rutas y funcionalidades según el rol del usuario.
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Si deseas contribuir, por favor:
+1.  Haz un Fork del proyecto.
+2.  Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3.  Realiza tus cambios y haz commit (`git commit -am 'Añade nueva funcionalidad'`).
+4.  Sube tus cambios a la rama (`git push origin feature/nueva-funcionalidad`).
+5.  Abre un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles (si decides añadir uno).
